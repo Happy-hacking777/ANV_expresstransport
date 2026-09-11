@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fafaf8;
+  color: #14130f;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), var(--font-archivo), sans-serif;
+  font-weight: 800;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+/* Sichtbarer Fokusring für Tastaturnavigation (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid #c2410c;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+}
+
+/* FAQ-Akkordeon: Standard-Dreieck-Marker ausblenden */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary {
+  list-style: none;
+}
+.faq-item[open] .faq-plus {
+  transform: rotate(45deg);
+  border-color: #c2410c;
+  color: #c2410c;
+}
