@@ -4,6 +4,7 @@ import { company } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Erklärung zur Barrierefreiheit",
+  alternates: { canonical: "/barrierefreiheit" },
 };
 
 export default function BarrierefreiheitPage() {
@@ -51,11 +52,7 @@ export default function BarrierefreiheitPage() {
           </p>
         </div>
 
-        <p className="text-sm text-muted">
-          Diese Erklärung wurde am {new Date().toLocaleDateString("de-DE")} erstellt.
-          Bitte prüfen und ergänzen Sie sie um die für Sie zuständige
-          Schlichtungsstelle, bevor die Seite veröffentlicht wird.
-        </p>
+        <p className="text-sm text-muted">Stand dieser Erklärung: 25.10.2026.</p>
       </div>
     </Section>
   );

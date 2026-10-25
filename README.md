@@ -52,29 +52,27 @@ und beheben Sie eventuelle Fehlermeldungen, bevor Sie deployen.
    Project → Settings → Domains verbinden und DNS gemäß Vercel-Anleitung
    umstellen.
 
-## Bitte vor Veröffentlichung prüfen
+## Nach Eintragung der Sitzverlegung (Hamburg → Langenfeld)
 
-- **Kontaktdaten** in `lib/site-config.ts`: Erreichbarkeitszeiten sind aktuell
-  ein Platzhalter ("Mo–Sa, 7–20 Uhr") — bitte bestätigen oder anpassen.
-- **Rechtstexte**: Impressum, Datenschutzerklärung, AGB und die Erklärung zur
-  Barrierefreiheit sind Entwürfe auf Basis Ihrer Angaben und ersetzen keine
-  Rechtsberatung. Bitte von einem Rechtsanwalt/Steuerberater prüfen lassen —
-  insbesondere die Widerrufsrecht-Klausel in den AGB (B2C-Geschäft).
-- **Bilder/Logo**: Es wurden bewusst keine Fotos eingebaut (keine
-  Bildrechte vorhanden). Der Auftritt arbeitet mit Farbflächen/Icons im
-  bestehenden Stil. Eigene Fotos/Logo können in `public/` abgelegt und in
-  `app/page.tsx` eingebunden werden.
-- **Barrierefreiheit (BFSG)**: Grundstruktur ist auf WCAG 2.1 AA ausgelegt
-  (Tastaturbedienbarkeit, Kontraste, Fokusring, Skip-Link). Bei realen Bildern
-  bitte Alt-Texte ergänzen; bei künftigem Einsatz von Video/Formularen die
-  entsprechenden Anforderungen (Untertitel, Fehlermeldungen etc.) beachten.
-- **Cookies/Analytics**: Cookie-Banner (`components/CookieBanner.tsx`) ist
-  eingebaut und fragt "Alle akzeptieren" vs. "Nur notwendige" ab, aktuell aber
-  noch ohne angeschlossenen Analyse-Dienst. Wird später Google Analytics o. Ä.
-  ergänzt, darf das entsprechende Skript erst nach "Alle akzeptieren" geladen
-  werden (§ 25 TTDSG) — und `app/datenschutz/page.tsx`, Abschnitt 5, muss um
-  Anbieter/Zweck/Speicherdauer ergänzt werden.
-- **Navigation/Domain**: Diese Seite ersetzt den bisherigen Auftritt komplett
-  (gleiche Domain/Marke ANV Hansekontor, gleiches Impressum). Anker-Links in
-  `lib/site-config.ts` (`nav`-Array) anpassen, falls Sektionen umbenannt oder
-  neu geordnet werden.
+In `lib/site-config.ts`:
+1. `address` auf Lessingstraße 16, 40764 Langenfeld (Rheinland) ändern.
+2. `register.court` / `register.hrb` an den neuen HR-Auszug anpassen.
+3. `operationsBase` auf `null` setzen – dann verschwindet die separate
+   „Einsatzbasis“ automatisch aus Impressum und Kontaktbereich.
+4. Datum in `app/sitemap.ts` für `/impressum` aktualisieren.
+
+## Domain: nur anv-hansekontor.de (ohne www)
+
+Canonical, Sitemap und robots.txt verweisen auf `https://anv-hansekontor.de`.
+Die Weiterleitung www → ohne www wird in Vercel eingestellt (nicht im Code,
+um Weiterleitungsschleifen zu vermeiden):
+Vercel → Projekt → Settings → Domains →
+`anv-hansekontor.de` ohne Redirect (primär), `www.anv-hansekontor.de` →
+„Redirect to anv-hansekontor.de“ (308 Permanent).
+
+## Google-Unternehmensprofil
+
+Unter business.google.com ein Profil „ANV Express“ anlegen (Kategorie z. B.
+„Transportunternehmen“/„Kurierdienst“, Servicegebiet Deutschland, Adresse
+Langenfeld ausblenden falls kein Kundenverkehr) und diese Website verlinken.
+Die strukturierten Daten (JSON-LD) in `app/layout.tsx` passen dazu.

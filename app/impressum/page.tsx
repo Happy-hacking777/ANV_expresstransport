@@ -4,7 +4,7 @@ import { company } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  robots: { index: true, follow: true },
+  alternates: { canonical: "/impressum" },
 };
 
 export default function ImpressumPage() {
@@ -26,6 +26,17 @@ export default function ImpressumPage() {
           </p>
         </div>
 
+        {company.operationsBase && (
+          <div>
+            <p className="font-semibold">{company.operationsBase.label}</p>
+            <p>
+              {company.operationsBase.street}
+              <br />
+              {company.operationsBase.zip} {company.operationsBase.city}
+            </p>
+          </div>
+        )}
+
         <div>
           <p className="font-semibold">Vertreten durch</p>
           <p>Geschäftsführer: {company.geschaeftsfuehrer}</p>
@@ -34,17 +45,15 @@ export default function ImpressumPage() {
         <div>
           <p className="font-semibold">Kontakt</p>
           <p>
-            Telefon: {company.phoneMain}
-            <br />
             E-Mail: {company.email}
+            <br />
+            Telefon: {company.phoneMain}
           </p>
         </div>
 
         <div>
           <p className="font-semibold">Registereintrag</p>
           <p>
-            Eintragung im Handelsregister
-            <br />
             Registergericht: {company.register.court}
             <br />
             Registernummer: {company.register.hrb}
@@ -53,45 +62,17 @@ export default function ImpressumPage() {
 
         <div>
           <p className="font-semibold">Umsatzsteuer-Identifikationsnummer</p>
-          <p>
-            gemäß § 27 a Umsatzsteuergesetz: {company.ustId}
-            <br />
-            Steuernummer: {company.steuernummer}
-          </p>
+          <p>gemäß § 27 a Umsatzsteuergesetz: {company.ustId}</p>
         </div>
 
         <div>
-          <p className="font-semibold">Zollnummer</p>
-          <p>EORI-Nummer: {company.eori}</p>
-        </div>
-
-        <div>
-          <p className="font-semibold">
-            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
-          </p>
+          <p className="font-semibold">Verbraucherstreitbeilegung</p>
           <p>
-            {company.geschaeftsfuehrer}
-            <br />
-            {company.address.street}, {company.address.zip} {company.address.city}
+            Unser Angebot richtet sich ausschließlich an Unternehmer. Wir sind nicht
+            bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer
+            Verbraucherschlichtungsstelle teilzunehmen.
           </p>
         </div>
-
-        <div>
-          <p className="font-semibold">EU-Streitschlichtung</p>
-          <p>
-            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung
-            (OS) bereit: https://ec.europa.eu/consumers/odr/. Unsere E-Mail-Adresse
-            finden Sie oben. Wir sind nicht bereit oder verpflichtet, an
-            Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-            teilzunehmen.
-          </p>
-        </div>
-
-        <p className="text-sm text-muted">
-          Dieses Impressum wurde auf Basis der von Ihnen bereitgestellten Angaben
-          erstellt. Bitte lassen Sie es vor Veröffentlichung von einem Rechtsanwalt
-          oder Steuerberater prüfen.
-        </p>
       </div>
     </Section>
   );

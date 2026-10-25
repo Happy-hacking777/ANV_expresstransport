@@ -50,3 +50,13 @@ h3 {
   border-color: #c2410c;
   color: #c2410c;
 }
+
+/* Schwebenden CTA ausblenden, solange der Cookie-Dialog offen ist */
+html[data-cookie-open="true"] .floating-cta {
+  display: none;
+}
+
+/* Anker unter dem Sticky-Header nicht verdecken */
+[id] {
+  scroll-margin-top: 6rem;
+}

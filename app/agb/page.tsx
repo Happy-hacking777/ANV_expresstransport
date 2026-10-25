@@ -3,8 +3,18 @@ import Section from "@/components/Section";
 import { company } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "AGB",
+  title: "Allgemeine Geschäftsbedingungen",
+  alternates: { canonical: "/agb" },
 };
+
+function Clause({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <h2 className="text-lg font-semibold">{title}</h2>
+      <div className="mt-2 space-y-2">{children}</div>
+    </div>
+  );
+}
 
 export default function AgbPage() {
   return (
@@ -12,94 +22,144 @@ export default function AgbPage() {
       <h1 className="text-3xl font-semibold tracking-tight text-ink">
         Allgemeine Geschäftsbedingungen
       </h1>
+      <p className="mt-3 text-muted">
+        {company.name} ({company.brand}) · Stand: 25.10.2026
+      </p>
 
       <div className="mt-8 max-w-2xl space-y-8 text-base leading-relaxed text-ink">
-        <div>
-          <h2 className="text-lg font-semibold">1. Geltungsbereich</h2>
-          <p className="mt-2">
-            Diese Allgemeinen Geschäftsbedingungen gelten für alle Transport- und
-            Logistikleistungen, die {company.name} (nachfolgend „wir" oder
-            „ANV Hansekontor") gegenüber Geschäfts- und Privatkunden (nachfolgend
-            „Auftraggeber") erbringt.
+        <Clause title="1. Geltungsbereich">
+          <p>
+            Diese Allgemeinen Geschäftsbedingungen gelten für alle Verkehrsverträge
+            über Güterbeförderungen und damit zusammenhängende Leistungen der{" "}
+            {company.name} (nachfolgend „wir“) unter der Marke {company.brand}.
           </p>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold">2. Vertragsschluss</h2>
-          <p className="mt-2">
-            Der Auftraggeber übermittelt uns eine Anfrage (z. B. per WhatsApp,
-            Telefon oder E-Mail) mit Abhol- und Zieladresse, Maße, Gewicht und
-            Wunschtermin. Wir unterbreiten daraufhin ein verbindliches
-            Festpreisangebot. Der Vertrag kommt durch Annahme dieses Angebots durch
-            den Auftraggeber zustande.
+          <p>
+            Unser Angebot richtet sich ausschließlich an Unternehmer im Sinne von
+            § 14 BGB, juristische Personen des öffentlichen Rechts und
+            öffentlich-rechtliche Sondervermögen (nachfolgend „Auftraggeber“).
+            Verträge mit Verbrauchern schließen wir nicht.
           </p>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold">3. Leistungen</h2>
-          <p className="mt-2">
-            Wir führen Direktfahrten mit Transportern bis 3,5 t durch, ohne
-            Umladung und ohne Sammelgut, sofern nicht ausdrücklich anders vereinbart.
-            Eine Ladebordwand wird nur gestellt, wenn dies bei der Anfrage angegeben
-            und im Angebot bestätigt wurde.
+          <p>
+            Abweichende Geschäftsbedingungen des Auftraggebers gelten nur, wenn wir
+            ihnen ausdrücklich in Textform zugestimmt haben.
           </p>
-        </div>
+        </Clause>
 
-        <div>
-          <h2 className="text-lg font-semibold">4. Preise und Zahlung</h2>
-          <p className="mt-2">
+        <Clause title="2. Geltung der ADSp 2017">
+          <p>
+            Wir arbeiten auf Grundlage der Allgemeinen Deutschen Spediteurbedingungen
+            2017 (ADSp 2017). Diese gelten ergänzend, soweit in diesen AGB oder im
+            Einzelvertrag nichts Abweichendes geregelt ist. Den Text der ADSp 2017
+            senden wir Ihnen auf Anfrage gern zu.
+          </p>
+          <p>
+            Rangfolge: Individuelle Vereinbarung im Auftrag, danach diese AGB,
+            danach die ADSp 2017, im Übrigen die gesetzlichen Vorschriften, insbesondere
+            §§ 407 ff. HGB.
+          </p>
+        </Clause>
+
+        <Clause title="3. Angebot und Vertragsschluss">
+          <p>
+            Der Auftraggeber übermittelt uns seine Anfrage mit Abhol- und Zieladresse,
+            Art, Anzahl, Maßen und Gewicht der Güter sowie dem Wunschtermin. Wir
+            unterbreiten daraufhin ein verbindliches Festpreisangebot in Textform
+            (in der Regel per E-Mail). Der Vertrag kommt mit der Annahme dieses
+            Angebots durch den Auftraggeber in Textform zustande.
+          </p>
+          <p>
+            Grundlage des Angebots sind die Angaben des Auftraggebers. Weichen die
+            tatsächlichen Verhältnisse davon ab (z. B. Maße, Gewicht, Ladestellen),
+            können wir den Preis entsprechend anpassen oder die Durchführung ablehnen.
+          </p>
+        </Clause>
+
+        <Clause title="4. Leistungen">
+          <p>
+            Wir führen Direktfahrten mit Fahrzeugen bis 3,5 t zulässiger Gesamtmasse
+            durch – ohne Umladung und ohne Sammelgut, sofern nicht ausdrücklich anders
+            vereinbart. Eine Ladebordwand wird nur gestellt, wenn dies bei der Anfrage
+            angegeben und im Angebot bestätigt wurde.
+          </p>
+          <p>
+            Angegebene Abhol- und Zustellzeiten sind Zielzeiten. Feste Termine
+            (Fixtermine) gelten nur, wenn sie ausdrücklich als solche vereinbart wurden.
+          </p>
+        </Clause>
+
+        <Clause title="5. Pflichten des Auftraggebers">
+          <p>
+            Der Auftraggeber hat die Güter beförderungssicher zu verpacken und zu
+            kennzeichnen sowie vollständige und zutreffende Angaben zu Art, Menge,
+            Maßen und Gewicht zu machen. Soweit nicht anders vereinbart, obliegen das
+            beförderungssichere Verladen und Entladen dem Auftraggeber (§ 412 HGB).
+          </p>
+          <p>
+            Gefahrgut, temperaturgeführte Güter, lebende Tiere sowie besonders wertvolle
+            oder diebstahlgefährdete Güter (z. B. Geld, Edelmetalle, Schmuck, Kunst,
+            Ausweise) befördern wir nur nach vorheriger ausdrücklicher Vereinbarung.
+          </p>
+        </Clause>
+
+        <Clause title="6. Lade- und Wartezeiten">
+          <p>
+            Für Be- und Entladung steht eine angemessene Ladezeit zur Verfügung, deren
+            Umfang sich nach dem Angebot richtet. Wird sie aus Gründen überschritten,
+            die nicht in unserem Risikobereich liegen, steht uns ein angemessenes
+            Standgeld zu (§ 412 Abs. 3 HGB), sofern im Angebot nichts anderes
+            vereinbart ist.
+          </p>
+        </Clause>
+
+        <Clause title="7. Preise und Zahlung">
+          <p>
+            Alle Preise verstehen sich netto zuzüglich der gesetzlichen Umsatzsteuer.
             Für Strecken ab 500 km gilt, sofern nicht abweichend vereinbart, ein
-            Preis ab 0,90 €/km zzgl. gesetzlicher Mehrwertsteuer. Für Strecken unter
-            500 km wird ein individueller Festpreis vereinbart. Sofern nicht anders
-            angegeben, ist die Rechnung innerhalb von 7 Tagen nach Zustellung ohne
-            Abzug zur Zahlung fällig.
+            Preis ab 0,90 €/km. Für Strecken unter 500 km wird ein individueller
+            Festpreis vereinbart.
           </p>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-semibold">5. Haftung</h2>
-          <p className="mt-2">
-            Unsere Haftung für Schäden am transportierten Gut richtet sich nach den
-            gesetzlichen Bestimmungen des Frachtrechts (§§ 407 ff. HGB). Abweichend
-            von der gesetzlichen Regelhaftung von 8,33 Sonderziehungsrechten (SZR)
-            pro Kilogramm vereinbaren wir eine erhöhte Haftung bis 40 SZR/kg. Für
-            Schäden, die auf höherer Gewalt, unzureichender Verpackung durch den
-            Auftraggeber oder Angaben zu Maßen/Gewicht beruhen, haften wir nicht.
+          <p>
+            Rechnungen werden per E-Mail übermittelt und sind, sofern nicht anders
+            vereinbart, innerhalb von 7 Tagen nach Zustellung ohne Abzug zur Zahlung
+            fällig.
           </p>
-        </div>
+        </Clause>
 
-        <div>
-          <h2 className="text-lg font-semibold">
-            6. Widerrufsrecht für Verbraucher
-          </h2>
-          <p className="mt-2">
-            Schließen Sie den Vertrag als Verbraucher außerhalb unserer Geschäftsräume
-            oder im Fernabsatz (z. B. per WhatsApp, Telefon, E-Mail), steht Ihnen
-            grundsätzlich ein gesetzliches Widerrufsrecht zu. Beauftragen Sie uns
-            ausdrücklich damit, die Leistung vor Ablauf der Widerrufsfrist zu
-            beginnen, und wird die Leistung vollständig erbracht, erlischt Ihr
-            Widerrufsrecht mit vollständiger Erbringung (§ 356 Abs. 4 BGB). Über die
-            genauen Widerrufsmodalitäten informieren wir Sie gesondert vor
-            Vertragsschluss.
+        <Clause title="8. Kündigung durch den Auftraggeber">
+          <p>
+            Kündigt der Auftraggeber den Vertrag vor oder während der Durchführung, gilt
+            § 415 HGB. Wir können danach wahlweise die vereinbarte Fracht abzüglich
+            ersparter Aufwendungen oder pauschal ein Drittel der vereinbarten Fracht
+            (Fautfracht) verlangen.
           </p>
-        </div>
+        </Clause>
 
-        <div>
-          <h2 className="text-lg font-semibold">7. Schlussbestimmungen</h2>
-          <p className="mt-2">
-            Es gilt deutsches Recht. Gerichtsstand für Streitigkeiten mit
-            Unternehmern ist, soweit gesetzlich zulässig, Hamburg. Sollten einzelne
-            Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen
-            Bestimmungen unberührt.
+        <Clause title="9. Haftung">
+          <p>
+            Unsere Haftung für Verlust oder Beschädigung des Gutes richtet sich nach
+            den Bestimmungen des Frachtrechts (§§ 407 ff. HGB) und den ADSp 2017.
           </p>
-        </div>
+          <p className="rounded-sm border-l-4 border-accent bg-accent-tint px-4 py-3 font-bold">
+            Abweichend von § 431 Abs. 1 HGB und Ziffer 23 ADSp 2017 ist unsere Haftung
+            für Güterschäden auf 40 Sonderziehungsrechte (SZR) je Kilogramm des
+            Rohgewichts der Sendung begrenzt (§ 449 Abs. 2 HGB).
+          </p>
+          <p>
+            Diese Haftung ist über unsere Verkehrshaftungsversicherung abgesichert.
+            Die Haftungsbegrenzungen gelten nicht, soweit gesetzlich zwingend
+            unbeschränkt gehaftet wird, insbesondere bei Vorsatz oder Leichtfertigkeit
+            im Bewusstsein eines wahrscheinlichen Schadens (§ 435 HGB).
+          </p>
+        </Clause>
 
-        <p className="text-sm text-muted">
-          Dieser Text ist ein allgemeiner Entwurf und keine Rechtsberatung. Bitte
-          lassen Sie diese AGB vor Veröffentlichung von einem Rechtsanwalt prüfen und
-          an Ihr konkretes Geschäftsmodell (insbesondere Widerrufsrecht bei
-          B2C-Aufträgen) anpassen.
-        </p>
+        <Clause title="10. Schlussbestimmungen">
+          <p>
+            Es gilt das Recht der Bundesrepublik Deutschland. Ausschließlicher
+            Gerichtsstand für alle Streitigkeiten aus dem Vertragsverhältnis ist der
+            Sitz unserer Gesellschaft. Sollten einzelne Bestimmungen unwirksam sein,
+            bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+          </p>
+        </Clause>
       </div>
     </Section>
   );

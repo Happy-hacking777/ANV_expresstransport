@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Container from "./Container";
-import { company, nav } from "@/lib/site-config";
+import Logo from "./Logo";
+import { company, nav, telHref } from "@/lib/site-config";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -11,15 +12,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-20">
-        <Link
-          href="/"
-          className="whitespace-nowrap font-display text-[1.35rem] font-extrabold tracking-tight text-ink"
-          onClick={() => setOpen(false)}
-        >
-          ANV <span className="text-accent">Express</span>
-        </Link>
+        <Logo onClick={() => setOpen(false)} />
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Hauptnavigation">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Hauptnavigation">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -31,12 +26,20 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href={`tel:${company.phoneMain.replace(/\s/g, "")}`}
-          className="hidden whitespace-nowrap rounded-sm border border-line px-3 py-1.5 font-mono text-[0.82rem] text-ink md:inline-flex"
-        >
-          {company.phoneMain}
-        </a>
+        <div className="hidden flex-none items-center gap-2.5 md:flex">
+          <a
+            href={telHref}
+            className="whitespace-nowrap rounded-sm border border-line px-3 py-2 font-mono text-[0.8rem] text-ink hover:border-ink"
+          >
+            {company.phoneMain}
+          </a>
+          <Link
+            href="/#anfrage"
+            className="whitespace-nowrap rounded-sm bg-accent px-4 py-2 text-[0.84rem] font-bold text-white hover:bg-accent-dark"
+          >
+            Angebot anfragen
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -46,7 +49,6 @@ export default function Header() {
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="sr-only">{open ? "Menü schließen" : "Menü öffnen"}</span>
           {open ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -78,12 +80,21 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href={`tel:${company.phoneMain.replace(/\s/g, "")}`}
-              className="mt-3.5 inline-flex self-start rounded-sm border border-line px-3.5 py-2.5 font-mono text-[0.85rem] text-ink"
-            >
-              {company.phoneMain}
-            </a>
+            <div className="mt-3.5 flex flex-wrap gap-2.5 pb-2">
+              <Link
+                href="/#anfrage"
+                onClick={() => setOpen(false)}
+                className="inline-flex rounded-sm bg-accent px-4 py-2.5 text-[0.88rem] font-bold text-white"
+              >
+                Angebot anfragen
+              </Link>
+              <a
+                href={telHref}
+                className="inline-flex rounded-sm border border-line px-3.5 py-2.5 font-mono text-[0.85rem] text-ink"
+              >
+                {company.phoneMain}
+              </a>
+            </div>
           </Container>
         </nav>
       )}
