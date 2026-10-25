@@ -178,36 +178,38 @@ export default function HomePage() {
             <svg
               viewBox="0 0 380 320"
               role="img"
-              aria-label="Abholradius von ca. 100 km rund um Düsseldorf, mit Direktfahrt in ganz Deutschland"
+              aria-label="Abholradius von ca. 100 km rund um Düsseldorf, Direktfahrt in ganz Deutschland"
               className="block h-auto w-full"
             >
               <circle cx="150" cy="165" r="96" fill="none" className="text-line" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 5" />
               <g className="text-line" stroke="currentColor" strokeWidth="1.5">
-                <line x1="150" y1="165" x2="86" y2="108" />
-                <line x1="150" y1="165" x2="150" y2="72" />
-                <line x1="150" y1="165" x2="222" y2="96" />
-                <line x1="150" y1="165" x2="232" y2="168" />
-                <line x1="150" y1="165" x2="205" y2="232" />
-                <line x1="150" y1="165" x2="122" y2="248" />
-                <line x1="150" y1="165" x2="70" y2="210" />
+                <line x1="150" y1="165" x2="76.5" y2="103.3" />
+                <line x1="150" y1="165" x2="150.0" y2="69.0" />
+                <line x1="150" y1="165" x2="220.2" y2="99.5" />
+                <line x1="150" y1="165" x2="245.9" y2="168.4" />
+                <line x1="150" y1="165" x2="209.1" y2="240.6" />
+                <line x1="150" y1="165" x2="121.9" y2="256.8" />
+                <line x1="150" y1="165" x2="64.5" y2="208.6" />
               </g>
               <g className="text-muted" fill="currentColor">
-                <circle cx="86" cy="108" r="3.5" />
-                <circle cx="150" cy="72" r="3.5" />
-                <circle cx="222" cy="96" r="3.5" />
-                <circle cx="232" cy="168" r="3.5" />
-                <circle cx="205" cy="232" r="3.5" />
-                <circle cx="122" cy="248" r="3.5" />
-                <circle cx="70" cy="210" r="3.5" />
+                <circle cx="76.5" cy="103.3" r="3.5" />
+                <circle cx="150.0" cy="69.0" r="3.5" />
+                <circle cx="220.2" cy="99.5" r="3.5" />
+                <circle cx="245.9" cy="168.4" r="3.5" />
+                <circle cx="209.1" cy="240.6" r="3.5" />
+                <circle cx="121.9" cy="256.8" r="3.5" />
+                <circle cx="64.5" cy="208.6" r="3.5" />
               </g>
-              <line x1="228" y1="130" x2="358" y2="55" className="text-accent" stroke="currentColor" strokeWidth="2" strokeDasharray="1 7" strokeLinecap="round" />
+              <line x1="231.4" y1="114.1" x2="282" y2="62" className="text-accent" stroke="currentColor" strokeWidth="2" strokeDasharray="1 7" strokeLinecap="round" />
+              <circle cx="150" cy="165" r="13" className="text-accent" fill="currentColor" opacity="0.15" />
               <circle cx="150" cy="165" r="7" className="text-accent" fill="currentColor" />
-              <circle cx="150" cy="165" r="7" fill="none" className="text-accent" stroke="currentColor" strokeWidth="6" opacity="0.18" />
-              <text x="150" y="196" textAnchor="middle" className="text-ink" fill="currentColor" fontSize="10" fontWeight="600">
-                Rheinland
+              <rect x="98" y="186" width="104" height="24" rx="12" className="text-accent" fill="currentColor" />
+              <text x="150" y="202" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="600" letterSpacing="1.2" className="font-mono">
+                DÜSSELDORF
               </text>
-              <text x="345" y="42" textAnchor="end" className="text-accent" fill="currentColor" fontSize="10" fontWeight="600">
-                → ganz Deutschland
+              <rect x="268" y="36" width="98" height="24" rx="12" className="text-accent" fill="#FAFAF8" stroke="currentColor" strokeWidth="1.5" />
+              <text x="317" y="52" textAnchor="middle" className="text-accent font-mono" fill="currentColor" fontSize="11" fontWeight="600" letterSpacing="1.2">
+                GANZ DE
               </text>
             </svg>
             <div className="mt-2.5 flex justify-between gap-3 font-mono text-[0.72rem] uppercase tracking-wide text-muted">
